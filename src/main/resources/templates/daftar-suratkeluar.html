@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Daftar Surat Keluar</title>
+	<script src="/js/angular.min.js"></script>
+	<script src="/js/klr-controller.js"></script>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+    </head>
+    <body ng-app="KlrApp" class="container">
+        
+        <div class="jumbotron">
+            <h1>Daftar Surat Keluar</h1>
+            
+        </div>
+        <div ng-controller="KlrController">
+        <button class="btn btn-danger" ng-click="keluar()">Keluar</button>
+        <a href="/tambah" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus-sign"></span> Tambah Data</a>
+            <table class="table table-bordered table-hovered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>TANGGAL SURAT</th>
+                        <th>JUDUL</th>
+                        <th>TUJUAN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="klr in daftarKlr">
+                        <td>{{ klr.id }}</td>
+                        <td>{{ klr.tgl_surat }}</td>
+                        <td>{{ klr.judul }}</td>
+                        <td>{{ klr.tujuan }}</td>
+                        <td>
+                        <button class="btn btn-warning" ng-click="ubah(klr)"><span class="glyphicon glyphicon-edit"></span> Ubah</button>
+                        <button class="btn btn-danger" ng-click="hapus(klr)"><span class="glyphicon glyphicon-trash"></span> Hapus</button></td>
+                        
+                    </tr>
+                </tbody>
+                
+            </table>
+            
+        </div>
+            
+
+    </body>
+</html>
